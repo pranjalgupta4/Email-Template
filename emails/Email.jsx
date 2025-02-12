@@ -7,8 +7,10 @@ import {
   Link,
   Preview,
   Text,
+  Hr,
 } from "@react-email/components";
 import * as React from "react";
+import Footers from "./components/Footers";
 
 const Email = ({
   name = "John Doe",
@@ -56,7 +58,8 @@ const Email = ({
           <Text style={credentialsTitle}>Your Credentials</Text>
           <Text style={credentials}>
             Username: <strong>{username}</strong>
-            <br />
+          </Text>
+          <Text style={credentials}>
             Password: <strong>{password}</strong>
           </Text>
         </Container>
@@ -65,7 +68,7 @@ const Email = ({
           We look forward to seeing you at APOGEE 2025.
         </Text>
 
-        <Text style={psNote}>
+        <Text style={importantNote}>
           P.S: THIS EMAIL DOES NOT CONFIRM YOUR PRESENCE AT APOGEE 2025. YOU
           WILL BE RECEIVING ANOTHER EMAIL FOR THE CONFIRMATION OF YOUR
           PARTICIPATION.
@@ -86,12 +89,23 @@ const Email = ({
             pcr@bits-apogee.org
           </Link>
           <br />
-          {contactNumber}
+          <Link href="tel:+919876543210" style={link}>
+            {contactNumber}
+          </Link>
         </Text>
 
-        <Text style={importantNote}>
+        <Text style={alerNote}>
           <strong>NOTE:</strong> PLEASE CHECK YOUR SPAM FOLDER FOR UPDATES.
         </Text>
+        <Hr
+          style={{
+            marginTop: 16,
+            borderColor: "rgb(209,213,219)",
+            marginBottom: 16,
+            borderTopWidth: 2,
+          }}
+        />
+        <Footers />
       </Container>
     </Body>
   </Html>
@@ -99,30 +113,34 @@ const Email = ({
 
 export default Email;
 
+const color = {
+  themeColor: "#7C340E",
+};
+
 const main = {
-  backgroundColor: "#F4F4F4",
+  backgroundColor: color.themeColor,
   fontFamily: "'Roboto', sans-serif",
   fontSize: "16px",
-  color: "#333333",
+  color: color.themeColor,
   lineHeight: "1.6",
-  padding: "20px",
+  padding: "2%",
 };
 
 const container = {
-  margin: "0 auto",
-  maxWidth: "95%",
+  margin: "0",
+  maxWidth: "100%",
   backgroundColor: "#FFFFFF",
   borderRadius: "8px",
   boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-  padding: "5%",
+  padding: "4.5% 5%",
   boxShadow: "border-box",
 };
 
 const h2 = {
-  color: "#2E86AB",
+  color: color.themeColor,
   fontSize: "24px",
   fontWeight: "bold",
-  marginBottom: "20px",
+  margin: "0  0 20px 0",
   textAlign: "left",
   borderBottom: "2px solid #E5E5E5",
   paddingBottom: "10px",
@@ -136,43 +154,38 @@ const paragraph = {
 };
 
 const link = {
-  color: "#3498DB",
-  textDecoration: "none",
+  color: color.themeColor,
   fontWeight: "bold",
 };
 
+
 const credentialsContainer = {
   backgroundColor: "#f9f9f9",
-  border: "1px solid #e0e0e0",
+  borderLeft: `4px solid ${color.themeColor}`,
   borderRadius: "6px",
-  padding: "10px",
+  padding: "5px",
   marginBottom: "20px",
-  textAlign: "left",
-  display: "flex",
-  justifyContent: "center",
+  textAlign: "center",
 };
 
 const credentialsTitle = {
   fontSize: "18px",
-  color: "#2E86AB",
-  marginBottom: "10px",
+  color: color.themeColor,
+  marginBottom: "15px",
   textAlign: "center",
 };
 
 const credentials = {
   fontSize: "15px",
   color: "#555",
-  lineHeight: "1.4",
+  margin: "2px",
 };
 
-const psNote = {
-  fontSize: "14px",
-  color: "#777777",
-  fontStyle: "italic",
-  marginBottom: "20px",
-  textAlign: "left",
-  paddingBottom: "20px",
-  borderBottom: "2px solid #E5E5E5",
+const alerNote = {
+  borderRadius: "8px",
+  fontWeight: "500",
+  color: "rgb(225, 18, 18)",
+  textAlign: "center",
 };
 
 const signature = {
@@ -184,7 +197,7 @@ const signature = {
 
 const importantNote = {
   backgroundColor: "#FFF3CD",
-  border: "1px solid #FFC107",
+  border: "1px solid rgb(219, 198, 137)",
   borderRadius: "6px",
   padding: "10px",
   color: "#856404",
