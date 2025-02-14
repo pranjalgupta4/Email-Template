@@ -105,6 +105,7 @@ const Email = ({
             borderTopWidth: 2,
           }}
         />
+
         <Footers />
       </Container>
     </Body>
@@ -157,7 +158,6 @@ const link = {
   color: color.themeColor,
   fontWeight: "bold",
 };
-
 
 const credentialsContainer = {
   backgroundColor: "#f9f9f9",
